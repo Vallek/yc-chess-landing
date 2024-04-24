@@ -746,7 +746,6 @@
 .members__content {
 	display: flex;
 	justify-content: start;
-	/* gap: 94px; */
 	transition: transform 0.4s ease-in-out;
 }
 
@@ -755,7 +754,7 @@
 		gap: 20px;
 		width: 355px;
 		padding: 0 10px;
-		margin-left: -20px;
+		margin-left: -10px;
 	}
 }
 
