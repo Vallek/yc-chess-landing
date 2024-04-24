@@ -104,11 +104,9 @@ function nextMembers() {
 	// Slide numbers for mobile/desktop
 	if (winWidth < 1366) {
 		let n = 5;
-		console.log(n);
 		nextSlide(n);
 	} else {
 		let n = 1;
-		console.log(n);
 		nextSlide(n);
 	}
 }
