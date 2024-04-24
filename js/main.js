@@ -63,6 +63,8 @@ function resetSlides() {
 		currentCount.textContent = '1';
 	} else {
 		currentCount.textContent = '3';
+		sliderContent.style.transform = `translateX(0)`;
+		slideShift = 0;
 	}
 }
 window.addEventListener('resize', resetSlides);
@@ -129,4 +131,4 @@ function myLoop() {
   }, 4000);
 }
 
-myLoop();
+// myLoop();
