@@ -71,8 +71,8 @@ resetSlides();
 function prevSlide(n) {
 	if (slideShift <= n && slideShift != 0) {
 		slideShift--;
-		let n = slideShift * 100;
-		sliderContent.style.transform = `translateX(-${n}%)`;
+		let x = slideShift * 100;
+		sliderContent.style.transform = `translateX(-${x}%)`;
 		currentCount.textContent = slideShift + 1;
 	}
 }
@@ -80,9 +80,12 @@ function prevSlide(n) {
 function nextSlide(n) {
 	if (slideShift <= n - 1) {
 		slideShift++;
-		let n = slideShift * 100;
-		sliderContent.style.transform = `translateX(-${n}%)`;
+		let x = slideShift * 100;
+		sliderContent.style.transform = `translateX(-${x}%)`;
 		currentCount.textContent = slideShift + 1;
+	} else if (slideShift === n) {
+		slideShift = 0;
+		sliderContent.style.transform = `translateX(0)`;
 	}
 }
 
@@ -111,3 +114,18 @@ function nextMembers() {
 	}
 }
 next.addEventListener('click', nextMembers);
+
+// Slider timer
+let i = 1;
+function myLoop() {  
+	setInterval(() => {
+		if (i <= 6) {
+			i++;
+      nextMembers();
+    } else {
+			i = 1;
+		}
+  }, 4000);
+}
+
+myLoop();
