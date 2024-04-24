@@ -677,6 +677,7 @@
 
 @media screen and (max-width: 1366px) {
 	.members__header {
+		flex-direction: column;
 		justify-content: center;
 	}
 }
