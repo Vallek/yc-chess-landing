@@ -86,6 +86,7 @@ function nextSlide(n) {
 	} else if (slideShift === n) {
 		slideShift = 0;
 		sliderContent.style.transform = `translateX(0)`;
+		currentCount.textContent = slideShift + 1;
 	}
 }
 
