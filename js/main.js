@@ -17,18 +17,19 @@ const stagesContent = document.querySelector('.stages__list');
 const stagesCount = document.querySelector('.stages__page-count');
 const stagesBtns = document.querySelectorAll('.stages__slide-btn');
 
-let slideShift = 0;
+let stageShift = 0;
+let memberShift = 0;
 
 function prevStageSlide() {
-	if (slideShift <= 4 && slideShift != 0) {
-		slideShift--;
-		let num = slideShift * 100;
+	if (stageShift <= 4 && stageShift != 0) {
+		stageShift--;
+		let num = stageShift * 100;
 		stagesContent.style.transform = `translateX(-${num}%)`;
 		// Active button style
 		let stagesBtnActive = document.querySelector('.stages__slide-btn_active');
-		stagesBtnActive.classList.remove('stages__slide-btn_active');
 		let prevBtn = stagesBtnActive.previousElementSibling;
 		if (prevBtn !== null) {
+			stagesBtnActive.classList.remove('stages__slide-btn_active');
 			stagesBtnActive.previousElementSibling.classList.add('stages__slide-btn_active');
 		}
 	}
@@ -36,15 +37,15 @@ function prevStageSlide() {
 prevStage.addEventListener('click', prevStageSlide);
 
 function nextStageSlide() {
-	if (slideShift <= 3) {
-		slideShift++;
-		let num = slideShift * 100;
+	if (stageShift <= 3) {
+		stageShift++;
+		let num = stageShift * 100;
 		stagesContent.style.transform = `translateX(-${num}%)`;
 		// Active button style
 		let stagesBtnActive = document.querySelector('.stages__slide-btn_active');
-		stagesBtnActive.classList.remove('stages__slide-btn_active');
 		let nextBtn = stagesBtnActive.nextElementSibling;
 		if (nextBtn !== null) {
+			stagesBtnActive.classList.remove('stages__slide-btn_active');
 			stagesBtnActive.nextElementSibling.classList.add('stages__slide-btn_active');
 		}
 	}
@@ -64,7 +65,7 @@ function resetSlides() {
 		maxCount.textContent = '6';
 	} else {
 		sliderContent.style.transform = `translateX(0)`;
-		slideShift = 0;
+		memberShift = 0;
 		maxCount.textContent = '2';
 	}
 }
@@ -72,24 +73,24 @@ window.addEventListener('resize', resetSlides);
 resetSlides();
 
 function prevSlide(n) {
-	if (slideShift <= n && slideShift != 0) {
-		slideShift--;
-		let num = slideShift * 100;
+	if (memberShift <= n && memberShift != 0) {
+		memberShift--;
+		let num = memberShift * 100;
 		sliderContent.style.transform = `translateX(-${num}%)`;
-		currentCount.textContent = slideShift + 1;
+		currentCount.textContent = memberShift + 1;
 	}
 }
 
 function nextSlide(n) {
-	if (slideShift <= n - 1) {
-		slideShift++;
-		let num = slideShift * 100;
+	if (memberShift <= n - 1) {
+		memberShift++;
+		let num = memberShift * 100;
 		sliderContent.style.transform = `translateX(-${num}%)`;
-		currentCount.textContent = slideShift + 1;
-	} else if (slideShift === n) {
-		slideShift = 0;
+		currentCount.textContent = memberShift + 1;
+	} else if (memberShift === n) {
+		memberShift = 0;
 		sliderContent.style.transform = `translateX(0)`;
-		currentCount.textContent = slideShift + 1;
+		currentCount.textContent = memberShift + 1;
 	}
 }
 
