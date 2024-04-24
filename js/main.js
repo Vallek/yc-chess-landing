@@ -12,13 +12,9 @@ runline.forEach((el) => {
 // Stages slider
 const prevStage = document.querySelector('.stages__prev');
 const nextStage = document.querySelector('.stages__next');
-const currentStage = document.querySelector('.stages__curr-count');
 const stagesContent = document.querySelector('.stages__list');
-const stagesCount = document.querySelector('.stages__page-count');
-const stagesBtns = document.querySelectorAll('.stages__slide-btn');
 
 let stageShift = 0;
-let memberShift = 0;
 
 function prevStageSlide() {
 	if (stageShift <= 4 && stageShift != 0) {
@@ -53,11 +49,13 @@ function nextStageSlide() {
 nextStage.addEventListener('click', nextStageSlide);
 
 // Members slider
-const prev = document.querySelector('.members__prev');
-const next = document.querySelector('.members__next');
+const prevMember = document.querySelector('.members__prev');
+const nextMember = document.querySelector('.members__next');
 const currentCount = document.querySelector('.members__curr-count');
 const maxCount = document.querySelector('.members__max-count');
 const sliderContent = document.querySelector('.members__content');
+
+let memberShift = 0;
 
 function resetSlides() {
 	let winWidth = window.innerWidth;
@@ -105,7 +103,7 @@ function prevMembers() {
 		prevSlide(n);
 	}
 }
-prev.addEventListener('click', prevMembers);
+prevMember.addEventListener('click', prevMembers);
 
 function nextMembers() {
 	let winWidth = window.innerWidth;
@@ -118,7 +116,7 @@ function nextMembers() {
 		nextSlide(n);
 	}
 }
-next.addEventListener('click', nextMembers);
+nextMember.addEventListener('click', nextMembers);
 
 // Slider timer
 let i = 1;
