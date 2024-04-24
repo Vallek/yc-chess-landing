@@ -131,4 +131,4 @@ function myLoop() {
   }, 4000);
 }
 
-// myLoop();
+myLoop();
